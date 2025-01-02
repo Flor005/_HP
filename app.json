@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "hello_world",
+    "slug": "hello_world",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/Golden_Snitch.jpg",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./src/assets/Hedwig.jpg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/Golden_Snitch.jpg",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
