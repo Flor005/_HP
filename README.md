@@ -1,8 +1,8 @@
 # Verbeterpunten:
 
-Als ik een character/spell zoek, en er is maar 1 result, dan is de rest vd pagina gewoon neutraal grijs en niet hetzelfde kleur als de List.
-
 Characters: Moet ik nog styling doen zodat als de naam te groot wordt (door te lange naam of te groot lettertype) dat de afbeelding steeds op zijn plaats blijft?
+
+Button in de ./components/Error.js om de api-request opnieuw uit te voeren?
 
 # Styles:
 

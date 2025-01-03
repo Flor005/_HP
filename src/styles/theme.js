@@ -17,26 +17,18 @@ export const colors = {
   },
 };
 
-// Griffyndor (light):
+// Griffyndor ('light'):
 // #740101
 // #AD0001
 // #EEBA2F
 // #D2A626
 // #000000
-// Slytherin (dark):
+// Slytherin ('dark'):
 // #1A472A
 // #2A623D
 // #5D5D5D
 // #AAAAAA
 // #000000
-
-// tertiary: '#4b5563',
-// accent: '#0891b2',
-// tint: '#111827',
-
-// tertiary: '#d1d5db',
-// accent: '#0891b2',
-// tint: '#f9fafb',
 
 export const fonts = {
   small: {
@@ -68,6 +60,10 @@ export const languages = {
     settingsLanguage: 'Language',
     spellsSearch: 'Search your favourite spell!',
     charactersSearch: 'Search your favourite character!',
+    loadingNotification:
+      'It is loading, your results will be here as soon as possible!',
+    errorNotification:
+      'Something went wrong, please check your internet connection and restart the app!',
   },
   fr: {
     homeLabel: 'Maison',
@@ -87,6 +83,10 @@ export const languages = {
     settingsLanguage: 'Langue',
     spellsSearch: 'Recherchez votre sort préféré!',
     charactersSearch: 'Recherchez votre charactère préféré!',
+    loadingNotification:
+      'Le chargement est en cours, vos résultats seront ici dès que possible !',
+    errorNotification:
+      "Une erreur s'est produite, veuillez vérifier votre connexion Internet et redémarrer l'application !",
   },
 };
 

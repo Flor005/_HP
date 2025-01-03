@@ -4,7 +4,6 @@ import {
   FlatList,
   StyleSheet,
   Text,
-  SafeAreaView,
   Image,
   TextInput,
   Pressable,
@@ -16,6 +15,8 @@ import {
   FontContext,
 } from '../contexts/ThemeContext';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import Loading from '../components/Loading';
+import Error from '../components/Error';
 
 const Item = ({ navigation, styleFont, styleTheme, colors, item }) => (
   <Pressable
@@ -78,19 +79,11 @@ const CharactersScreen = ({ navigation }) => {
   }, []);
 
   if (isLoading) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Text>LOADING.........</Text>
-      </SafeAreaView>
-    );
+    return <Loading />;
   }
 
   if (error) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Text>Smth went wrong, please try again!!</Text>
-      </SafeAreaView>
-    );
+    return <Error />;
   }
 
   const DATA = data?.filter(
@@ -104,6 +97,7 @@ const CharactersScreen = ({ navigation }) => {
       style={{
         backgroundColor: activeColors.background,
         paddingBottom: useBottomTabBarHeight(),
+        flex: 1,
       }}
     >
       <TextInput

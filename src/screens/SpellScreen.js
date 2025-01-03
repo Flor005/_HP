@@ -1,12 +1,5 @@
 import { React, useState, useEffect, useContext } from 'react';
-import {
-  Text,
-  View,
-  SafeAreaView,
-  FlatList,
-  TextInput,
-  StyleSheet,
-} from 'react-native';
+import { Text, View, FlatList, TextInput, StyleSheet } from 'react-native';
 import { colors, languages, fonts } from '../styles/theme';
 import {
   ThemeContext,
@@ -14,6 +7,8 @@ import {
   FontContext,
 } from '../contexts/ThemeContext';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import Loading from '../components/Loading';
+import Error from '../components/Error';
 
 const Item = ({ item, colors, fonts }) => (
   <View style={[styles.item, { backgroundColor: colors.item }]}>
@@ -64,16 +59,10 @@ const SpellScreen = () => {
   }, []);
 
   if (isLoading) {
-    return (
-      <SafeAreaView>
-        <Text>Still Loading...</Text>
-      </SafeAreaView>
-    );
+    return <Loading />;
   }
   if (error) {
-    <SafeAreaView>
-      <Text>Whoeps, try again</Text>
-    </SafeAreaView>;
+    return <Error />;
   }
 
   const DATA = data?.filter((spell) =>
@@ -85,6 +74,7 @@ const SpellScreen = () => {
       style={{
         backgroundColor: activeColors.background,
         paddingBottom: useBottomTabBarHeight(),
+        flex: 1,
       }}
     >
       <TextInput
