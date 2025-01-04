@@ -5,7 +5,7 @@ import DetailCharacter from '../components/DetailCharacter';
 import { colors } from '../styles/theme';
 import { ThemeContext } from '../contexts/ThemeContext';
 
-const DetailScreen = () => {
+const DetailScreen = ({ navigation }) => {
   const { theme } = useContext(ThemeContext);
 
   let activeColors = colors[theme.mode];
@@ -20,7 +20,7 @@ const DetailScreen = () => {
         backgroundColor: activeColors.item,
       }}
     >
-      <DetailCharacter item={item} />
+      <DetailCharacter item={item} navigation={navigation} />
     </ScrollView>
   );
 };

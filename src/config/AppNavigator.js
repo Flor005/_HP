@@ -5,21 +5,27 @@ import { NavigationContainer } from '@react-navigation/native';
 // importing different screens
 import HomeScreen from '../screens/HomeScreen';
 import CharactersScreen from '../screens/CharactersScreen';
+import HouseScreen from '../screens/HouseScreen';
 import DetailScreen from '../screens/DetailScreen';
 import SpellScreen from '../screens/SpellScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 // importing icons
-import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 // import context
-import { ThemeContext } from '../contexts/ThemeContext';
-import { colors } from '../styles/theme';
+import {
+  ThemeContext,
+  LanguageContext,
+  FontContext,
+} from '../contexts/ThemeContext';
+import { colors, languages, fonts } from '../styles/theme';
 
 const Tab = createBottomTabNavigator();
 
 export const TabNavigator = () => {
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
   let activeColors = colors[theme.mode];
+  let activeLanguages = languages[language.mode];
 
   const backgroundColor = { backgroundColor: activeColors.background };
 
@@ -30,23 +36,25 @@ export const TabNavigator = () => {
           name='Home'
           component={HomeScreen}
           options={{
-            title: 'Home',
+            title: activeLanguages.homeLabel,
             headerStyle: backgroundColor,
             tabBarStyle: backgroundColor,
-            tabBarLabel: 'Home',
-            tabBarIcon: () => <AntDesign name='home' size={24} color='black' />,
+            tabBarLabel: activeLanguages.homeLabel,
+            tabBarIcon: () => (
+              <FontAwesome6 name='house-chimney' size={24} color='black' />
+            ),
           }}
         />
         <Tab.Screen
           name='Characters'
           component={CharacterNavigator}
           options={{
-            title: 'Characters',
+            title: activeLanguages.characterLabel,
             headerStyle: backgroundColor,
             tabBarStyle: backgroundColor,
-            tabBarLabel: 'Characters',
+            tabBarLabel: activeLanguages.characterLabel,
             tabBarIcon: () => (
-              <AntDesign name='addusergroup' size={24} color='black' />
+              <FontAwesome6 name='users' size={24} color='black' />
             ),
           }}
         />
@@ -54,10 +62,10 @@ export const TabNavigator = () => {
           name='Spells'
           component={SpellScreen}
           options={{
-            title: 'Spells',
+            title: activeLanguages.spellsLabel,
             headerStyle: backgroundColor,
             tabBarStyle: backgroundColor,
-            tabBarLabel: 'Spells',
+            tabBarLabel: activeLanguages.spellsLabel,
             tabBarIcon: () => (
               <FontAwesome6 name='wand-sparkles' size={24} color='black' />
             ),
@@ -67,12 +75,12 @@ export const TabNavigator = () => {
           name='Settings'
           component={SettingsScreen}
           options={{
-            title: 'Settings',
+            title: activeLanguages.settingsLabel,
             headerStyle: backgroundColor,
             tabBarStyle: backgroundColor,
-            tabBarLabel: 'Settings',
+            tabBarLabel: activeLanguages.settingsLabel,
             tabBarIcon: () => (
-              <AntDesign name='setting' size={24} color='black' />
+              <FontAwesome6 name='gear' size={24} color='black' />
             ),
           }}
         />
@@ -86,6 +94,8 @@ const DetailStack = createNativeStackNavigator();
 export const CharacterNavigator = () => {
   const { theme } = useContext(ThemeContext);
   let activeColors = colors[theme.mode];
+  const { language } = useContext(LanguageContext);
+  let activeLanguages = languages[language.mode];
   return (
     <DetailStack.Navigator>
       <DetailStack.Screen
@@ -97,7 +107,15 @@ export const CharacterNavigator = () => {
         name='Detail'
         component={DetailScreen}
         options={{
-          title: 'Details',
+          title: activeLanguages.detailsScreen,
+          headerStyle: { backgroundColor: activeColors.background },
+        }}
+      />
+      <DetailStack.Screen
+        name='House'
+        component={HouseScreen}
+        options={{
+          title: activeLanguages.houseScreen,
           headerStyle: { backgroundColor: activeColors.background },
         }}
       />

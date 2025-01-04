@@ -1,5 +1,5 @@
 import { React, useContext } from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, Pressable } from 'react-native';
 import { fonts, languages, colors } from '../styles/theme';
 import {
   FontContext,
@@ -8,7 +8,7 @@ import {
 } from '../contexts/ThemeContext';
 
 const DetailCharacter = (props) => {
-  const { item } = props;
+  const { item, navigation } = props;
   const { name, wand, house, ancestry, patronus, image } = item;
 
   const { font } = useContext(FontContext);
@@ -20,7 +20,7 @@ const DetailCharacter = (props) => {
   let activeThemes = colors[theme.mode];
 
   return (
-    <View style={{}}>
+    <View>
       <Text
         style={{
           fontSize: activeFonts.font,
@@ -34,8 +34,16 @@ const DetailCharacter = (props) => {
         {'\n'}
         {activeLanguages.detailWandWood}: {wand.wood ? wand.wood : 'Unknown'}
         {'\n'}
-        {activeLanguages.detailHouse}: {house ? house : 'Unknown'}
-        {'\n'}
+      </Text>
+
+      <Pressable onPress={() => navigation.navigate('House', { house: house })}>
+        <Text>
+          {activeLanguages.detailHouse}: {house ? house : 'Unknown'}
+          {'\n'}
+        </Text>
+      </Pressable>
+
+      <Text>
         {activeLanguages.detailAncestry}: {ancestry ? ancestry : 'Unknown'}
         {'\n'}
         {activeLanguages.detailPatronus}: {patronus ? patronus : 'Unknown'}
