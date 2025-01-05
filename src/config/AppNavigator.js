@@ -12,12 +12,8 @@ import SettingsScreen from '../screens/SettingsScreen';
 // importing icons
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 // import context
-import {
-  ThemeContext,
-  LanguageContext,
-  FontContext,
-} from '../contexts/ThemeContext';
-import { colors, languages, fonts } from '../styles/theme';
+import { ThemeContext, LanguageContext } from '../contexts/ThemeContext';
+import { colors, languages } from '../styles/theme';
 
 const Tab = createBottomTabNavigator();
 
@@ -99,9 +95,9 @@ export const CharacterNavigator = () => {
   return (
     <DetailStack.Navigator>
       <DetailStack.Screen
-        name='Characters'
+        name='CharactersScreen'
         component={CharactersScreen}
-        options={{ headerShown: false, title: 'Find your character' }}
+        options={{ headerShown: false }}
       />
       <DetailStack.Screen
         name='Detail'
@@ -115,7 +111,7 @@ export const CharacterNavigator = () => {
         name='House'
         component={HouseScreen}
         options={{
-          title: activeLanguages.houseScreen,
+          // title: 'Gryffindor', //activeLanguages.houseScreen,
           headerStyle: { backgroundColor: activeColors.background },
         }}
       />

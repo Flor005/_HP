@@ -44,7 +44,6 @@ const SpellScreen = () => {
   useEffect(() => {
     const fetchSpells = async () => {
       setIsLoading(true);
-      console.log(activeColors.accent);
       try {
         const response = await fetch('https://hp-api.onrender.com/api/spells');
         const spells = await response.json();

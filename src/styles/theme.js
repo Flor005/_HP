@@ -1,11 +1,12 @@
 export const colors = {
   light: {
-    // Griffyndor
+    // Gryffindor
     background: '#A92C2D',
     item: '#AD0001',
-    primary: '#EEBA2F', //text,
+    primary: '#EEBA2F',
     secondary: '#D2A626',
     tertiary: 'white',
+    image: '../assets/Gryffindorlogo.jpg',
   },
   dark: {
     // Slytherin
@@ -14,21 +15,9 @@ export const colors = {
     primary: '#AAAAAA', //text
     secondary: '#000000',
     tertiary: 'white',
+    image: '../assets/Slytherinlogo.jpg',
   },
 };
-
-// Griffyndor ('light'):
-// #740101
-// #AD0001
-// #EEBA2F
-// #D2A626
-// #000000
-// Slytherin ('dark'):
-// #1A472A
-// #2A623D
-// #5D5D5D
-// #AAAAAA
-// #000000
 
 export const fonts = {
   small: {
@@ -47,6 +36,7 @@ export const languages = {
     characterLabel: 'Characters',
     spellsLabel: 'Spells',
     settingsLabel: 'Settings',
+    charactersScreen: 'Find your character',
     detailsScreen: 'Details',
     houseScreen: 'House',
     characterPlaceholder: 'Search for your favorite character',
@@ -72,6 +62,7 @@ export const languages = {
     characterLabel: 'Charactères',
     spellsLabel: 'Sorts',
     settingsLabel: 'Paramètres',
+    charactersScreen: 'Trouvez votre personnage',
     detailsScreen: 'Détails',
     houseScreen: 'Maison',
     characterPlaceholder: 'Recherchez votre personnage préféré',
@@ -93,32 +84,3 @@ export const languages = {
       "Une erreur s'est produite, veuillez vérifier votre connexion Internet et redémarrer l'application !",
   },
 };
-
-// FONT_SIZE_MEDIUM: 14,
-// export default {
-//   PRIMARY_COLOR: '#ce0000',
-//   SECONDARY_COLOR: '#ce5656',
-//   FONT_WEIGHT_LIGHT: 200,
-// };
-
-// export const colors = {
-//   light: {
-//     background: '#222222',
-//     primary: '#ffffff', //'#f3f4f6',
-//     secondary: '#ffffff',
-//     tertiary: '#4b5563',
-//     accent: '#0891b2',
-//     tint: '#111827',
-//     font: 5,
-//     //
-//   },
-//   dark: {
-//     background: '#de4014',
-//     primary: '#dec014', //#1f2937
-//     secondary: '#111827',
-//     tertiary: '#d1d5db',
-//     accent: '#0891b2',
-//     tint: '#f9fafb',
-//     font: 80,
-//   },
-// };

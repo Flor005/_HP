@@ -41,8 +41,8 @@ const SettingsScreen = () => {
       style={{ flex: 1 }}
       source={
         isEnabledTheme
-          ? require('../assets/Gryffindorlogo.jpg')
-          : require('../assets/Slytherinlogo.jpg')
+          ? require('../assets/Slytherinlogo.jpg')
+          : require('../assets/Gryffindorlogo.jpg')
       }
     >
       <SwitchWithLabel

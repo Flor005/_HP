@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-// Dark or Light theme:
+// Light or Dark theme:
 export const ThemeContext = createContext();
 // Small or Big fontSize:
 export const FontContext = createContext();

@@ -9,6 +9,7 @@ const SwitchWithLabel = (props) => {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        marginLeft: 10,
       }}
     >
       <Text style={style}>{label}</Text>

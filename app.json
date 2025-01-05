@@ -8,7 +8,7 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./src/assets/Hedwig.jpg",
+      "image": "./src/assets/Sorting_Hat.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

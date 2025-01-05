@@ -14,7 +14,7 @@ import {
   LanguageContext,
   FontContext,
 } from '../contexts/ThemeContext';
-import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+// import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 
@@ -30,7 +30,7 @@ const Item = ({ navigation, styleFont, styleTheme, colors, item }) => (
       })
     }
   >
-    <View style={[{ backgroundColor: colors.item }, styles.item]}>
+    <View style={[{ backgroundColor: colors.item }, styles.itemContainer]}>
       <Text style={[styleFont, styleTheme, { color: colors.primary }]}>
         {item.name}
       </Text>
@@ -86,17 +86,15 @@ const CharactersScreen = ({ navigation }) => {
     return <Error />;
   }
 
-  const DATA = data?.filter(
-    (character) =>
-      character.name.toLowerCase().includes(searchValue.toLowerCase())
-    // FILTEREN OP HOUSE? OF EEN NIEUW SCREEN VOOR MAKEN?
+  const DATA = data?.filter((character) =>
+    character.name.toLowerCase().includes(searchValue.toLowerCase())
   );
 
   return (
     <View
       style={{
         backgroundColor: activeColors.background,
-        paddingBottom: useBottomTabBarHeight(),
+        // paddingBottom: useBottomTabBarHeight(),
         flex: 1,
       }}
     >
@@ -126,7 +124,7 @@ const CharactersScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  item: {
+  itemContainer: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',

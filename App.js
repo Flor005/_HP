@@ -7,8 +7,8 @@ import {
 } from './src/contexts/ThemeContext';
 
 const App = () => {
-  const [theme, setTheme] = useState({ mode: 'dark' });
-  const [font, setFont] = useState({ mode: 'big' });
+  const [theme, setTheme] = useState({ mode: 'light' });
+  const [font, setFont] = useState({ mode: 'small' });
   const [language, setLanguage] = useState({ mode: 'en' });
 
   const updateTheme = (newTheme) => {

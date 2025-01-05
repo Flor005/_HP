@@ -1,5 +1,5 @@
 import { React, useContext } from 'react';
-import { Text, View, Image, Pressable } from 'react-native';
+import { Text, View, Image, Pressable, StyleSheet } from 'react-native';
 import { fonts, languages, colors } from '../styles/theme';
 import {
   FontContext,
@@ -19,36 +19,52 @@ const DetailCharacter = (props) => {
   let activeLanguages = languages[language.mode];
   let activeThemes = colors[theme.mode];
 
+  const {
+    detailName,
+    detailWandCore,
+    detailWandWood,
+    detailAncestry,
+    detailPatronus,
+    detailHouse,
+  } = activeLanguages;
+
+  const styles = StyleSheet.create({
+    details: {
+      fontSize: activeFonts.font,
+      color: activeThemes.primary,
+      lineHeight: activeFonts.lineHeight,
+      marginLeft: 10,
+    },
+  });
+
   return (
     <View>
-      <Text
-        style={{
-          fontSize: activeFonts.font,
-          color: activeThemes.primary,
-          lineHeight: activeFonts.lineHeight,
-        }}
-      >
-        {activeLanguages.detailName}: {name ? name : 'Unknown'}
+      <Text style={styles.details}>
+        {detailName}: {name ? name : 'Unknown'}
         {'\n'}
-        {activeLanguages.detailWandCore}: {wand.core ? wand.core : 'Unknown'}
+        {detailWandCore}: {wand.core ? wand.core : 'Unknown'}
         {'\n'}
-        {activeLanguages.detailWandWood}: {wand.wood ? wand.wood : 'Unknown'}
+        {detailWandWood}: {wand.wood ? wand.wood : 'Unknown'}
         {'\n'}
+        {detailAncestry}: {ancestry ? ancestry : 'Unknown'}
+        {'\n'}
+        {detailPatronus}: {patronus ? patronus : 'Unknown'}
       </Text>
 
-      <Pressable onPress={() => navigation.navigate('House', { house: house })}>
-        <Text>
-          {activeLanguages.detailHouse}: {house ? house : 'Unknown'}
+      <Pressable
+        onPress={() =>
+          navigation.navigate('House', {
+            house: house,
+            navigation: navigation,
+          })
+        }
+      >
+        <Text style={styles.details}>
+          {detailHouse}: {house ? house : 'Unknown'}
           {'\n'}
         </Text>
       </Pressable>
 
-      <Text>
-        {activeLanguages.detailAncestry}: {ancestry ? ancestry : 'Unknown'}
-        {'\n'}
-        {activeLanguages.detailPatronus}: {patronus ? patronus : 'Unknown'}
-        {'\n'}
-      </Text>
       {/* // Take Image of the character, if not available, take default image. */}
       <Image
         style={{ width: 413, height: 600 }}

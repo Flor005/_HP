@@ -1,12 +1,8 @@
 import { React, useEffect, useState, useContext } from 'react';
 import { View, FlatList, StyleSheet, Text, Image } from 'react-native';
-import { colors, languages, fonts } from '../styles/theme';
-import {
-  ThemeContext,
-  LanguageContext,
-  FontContext,
-} from '../contexts/ThemeContext';
-import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import { colors, fonts } from '../styles/theme';
+import { ThemeContext, FontContext } from '../contexts/ThemeContext';
+// import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 import { useRoute } from '@react-navigation/native';
@@ -25,23 +21,25 @@ const Item = ({ styleFont, styleTheme, colors, item }) => (
   </View>
 );
 
-const CharactersScreen = () => {
-  const { language } = useContext(LanguageContext);
+const HouseScreen = ({ navigation }) => {
   const { theme } = useContext(ThemeContext);
   const { font } = useContext(FontContext);
 
-  let activeLanguages = languages[language.mode];
   let activeColors = colors[theme.mode];
   let activeFonts = fonts[font.mode];
 
-  const route = useRoute();
+  const route = useRoute(); // Blijkbaar heb je useRoute() niet nodig ajt van bovenaf neemt.
   const { house } = route.params;
+
+  // Van ChatGPT, nog eens goed doorlezen.
+  useEffect(() => {
+    navigation.setOptions({ title: house });
+  }, [house, navigation]);
 
   const BASE_URL = 'https://hp-api.onrender.com/api/characters/house/' + house;
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState();
-  const [searchValue, modifySearchValue] = useState('');
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -68,20 +66,16 @@ const CharactersScreen = () => {
     return <Error />;
   }
 
-  const DATA = data?.filter((character) =>
-    character.name.toLowerCase().includes(searchValue.toLowerCase())
-  );
-
   return (
     <View
       style={{
         backgroundColor: activeColors.background,
-        paddingBottom: useBottomTabBarHeight(),
+        // paddingBottom: useBottomTabBarHeight(),
         flex: 1,
       }}
     >
       <FlatList
-        data={DATA}
+        data={data}
         renderItem={({ item }) => (
           <Item
             styleFont={{ fontSize: activeFonts.font }}
@@ -90,7 +84,7 @@ const CharactersScreen = () => {
             item={item}
           />
         )}
-        keyExtractor={(item) => item.id} // enkel als er geen 'key' aanwezig is dan kan je de id 'omzetten'
+        keyExtractor={(item) => item.id}
       />
     </View>
   );
@@ -108,4 +102,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CharactersScreen;
+export default HouseScreen;
