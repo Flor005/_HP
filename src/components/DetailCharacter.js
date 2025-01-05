@@ -35,6 +35,15 @@ const DetailCharacter = (props) => {
     marginLeft: 10,
   };
 
+  const houseHandler = () => {
+    console.log(house);
+    if (house) {
+      navigation.navigate('House', { house: house });
+    } else {
+      return;
+    }
+  };
+
   return (
     <View>
       <Text style={stylesDetail}>
@@ -50,7 +59,7 @@ const DetailCharacter = (props) => {
       </Text>
       <Text
         style={stylesDetail}
-        onPress={() => navigation.navigate('House', { house: house })}
+        onPress={houseHandler}
         accessible={true}
         accessibilityLabel='Tap to see other members of the house'
         accessibilityHint='If you tap on the house, you will see a list of all other characters from the same house'
