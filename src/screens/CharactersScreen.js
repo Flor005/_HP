@@ -99,7 +99,10 @@ const CharactersScreen = ({ navigation }) => {
       <TextInput
         placeholder={activeLanguages.charactersSearch}
         onChangeText={modifySearchValue}
-        style={{ fontSize: activeFonts.font }}
+        style={{
+          fontSize: activeFonts.font,
+          height: activeFonts.lineHeight * 2,
+        }}
         accessible={true}
         accessibilityLabel='Search your favorite spell'
         accessibilityHint='You can type which spell you want to search for'

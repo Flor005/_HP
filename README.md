@@ -13,7 +13,7 @@ De iconen komen van volgende website: https://icons.expo.fyi/Index
 De code ivm createContext heb ik gebaseerd op volgende youtube-tutorial: https://www.youtube.com/watch?v=KZyUlaz7gCk
 De code ivm het fetchen van de data van de api heb ik gebaseerd op deze youtube-tutorial: https://www.youtube.com/watch?v=00lxm_doFYw
 De code in HomeScreen.js om een webpagina buiten de app te openen is gebaseerd op de code van de oplossing van Pokédex, les 8, Cross-Platform Development, Toledo.
-De code om de naam van het desbetreffende huis te displayen op het HouseScreen is gebaseerd op code van ChatGPT.
+De code om de naam van het desbetreffende huis te displayen op het HouseScreen en de styling van de TextInput in de CharactersScreen en SpellScreen (height: activeFonts.lineHeight \* 2) is gebaseerd op code van ChatGPT.
 
 Overige code was mogelijks een resultaat van informatie uit de cursus en de documentatie van React:
 Components: https://reactnative.dev/docs/components-and-apis
