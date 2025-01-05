@@ -6,7 +6,7 @@ export const colors = {
     primary: '#EEBA2F',
     secondary: '#D2A626',
     tertiary: 'white',
-    image: '../assets/Gryffindorlogo.jpg',
+    image: require('../assets/Gryffindorlogo.jpg'),
   },
   dark: {
     // Slytherin
@@ -15,7 +15,7 @@ export const colors = {
     primary: '#AAAAAA', //text
     secondary: '#000000',
     tertiary: 'white',
-    image: '../assets/Slytherinlogo.jpg',
+    image: require('../assets/Slytherinlogo.jpg'),
   },
 };
 
@@ -56,6 +56,7 @@ export const languages = {
       'It is loading, your results will be here as soon as possible!',
     errorNotification:
       'Something went wrong, please check your internet connection and restart the app!',
+    url: '',
   },
   fr: {
     homeLabel: 'Maison',
@@ -82,5 +83,6 @@ export const languages = {
       'Le chargement est en cours, vos résultats seront ici dès que possible !',
     errorNotification:
       "Une erreur s'est produite, veuillez vérifier votre connexion Internet et redémarrer l'application !",
+    url: 'fr/',
   },
 };

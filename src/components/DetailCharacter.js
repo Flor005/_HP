@@ -1,5 +1,5 @@
 import { React, useContext } from 'react';
-import { Text, View, Image, Pressable, StyleSheet } from 'react-native';
+import { Text, View, Image, StyleSheet } from 'react-native';
 import { fonts, languages, colors } from '../styles/theme';
 import {
   FontContext,
@@ -50,13 +50,13 @@ const DetailCharacter = (props) => {
         {'\n'}
         {detailPatronus}: {patronus ? patronus : 'Unknown'}
       </Text>
-
-      <Pressable onPress={() => navigation.navigate('House', { house: house })}>
-        <Text style={styles.details}>
-          {detailHouse}: {house ? house : 'Unknown'}
-          {'\n'}
-        </Text>
-      </Pressable>
+      <Text
+        style={styles.details}
+        onPress={() => navigation.navigate('House', { house: house })}
+      >
+        {detailHouse}: {house ? house : 'Unknown'}
+        {'\n'}
+      </Text>
 
       {/* // Take Image of the character, if not available, take default image. */}
       <Image

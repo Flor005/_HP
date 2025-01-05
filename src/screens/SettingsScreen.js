@@ -13,6 +13,10 @@ const SettingsScreen = () => {
   const { font, updateFont } = useContext(FontContext);
   const { language, updateLanguage } = useContext(LanguageContext);
 
+  let activeColors = colors[theme.mode];
+  let activeFonts = fonts[font.mode];
+  let activeLanguages = languages[language.mode];
+
   const [isEnabledTheme, setIsEnabledTheme] = useState(false);
   const [isEnabledFont, setIsEnabledFont] = useState(false);
   const [isEnabledLanguage, setIsEnabledLanguage] = useState(false);
@@ -30,21 +34,10 @@ const SettingsScreen = () => {
     setIsEnabledLanguage((previousState) => !previousState);
   };
 
-  let activeColors = colors[theme.mode];
-  let activeFonts = fonts[font.mode];
-  let activeLanguages = languages[language.mode];
-
   const styles = { fontSize: activeFonts.font, color: activeColors.tertiary };
 
   return (
-    <ImageBackground
-      style={{ flex: 1 }}
-      source={
-        isEnabledTheme
-          ? require('../assets/Slytherinlogo.jpg')
-          : require('../assets/Gryffindorlogo.jpg')
-      }
-    >
+    <ImageBackground style={{ flex: 1 }} source={activeColors.image}>
       <SwitchWithLabel
         label={activeLanguages.settingsTheme}
         style={styles}

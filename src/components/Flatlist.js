@@ -1,13 +1,13 @@
 import { React, useState } from 'react';
 import {
-  View,
   FlatList,
+  Image,
+  SafeAreaView,
+  StatusBar,
   StyleSheet,
   Text,
-  StatusBar,
-  SafeAreaView,
-  Image,
   TextInput,
+  View,
 } from 'react-native';
 import { ApiList } from './ApiList';
 
