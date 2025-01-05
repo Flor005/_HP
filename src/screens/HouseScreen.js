@@ -1,11 +1,9 @@
-import { React, useEffect, useState, useContext } from 'react';
-import { View, FlatList, StyleSheet, Text, Image } from 'react-native';
+import React, { useContext, useEffect, useState } from 'react';
+import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 import { colors, fonts } from '../styles/theme';
 import { ThemeContext, FontContext } from '../contexts/ThemeContext';
-// import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
-import { useRoute } from '@react-navigation/native';
 
 const Item = ({ styleFont, styleTheme, colors, item }) => (
   <View style={[{ backgroundColor: colors.item }, styles.item]}>
@@ -21,14 +19,13 @@ const Item = ({ styleFont, styleTheme, colors, item }) => (
   </View>
 );
 
-const HouseScreen = ({ navigation }) => {
+const HouseScreen = ({ route, navigation }) => {
   const { theme } = useContext(ThemeContext);
   const { font } = useContext(FontContext);
 
   let activeColors = colors[theme.mode];
   let activeFonts = fonts[font.mode];
 
-  const route = useRoute(); // Blijkbaar heb je useRoute() niet nodig ajt van bovenaf neemt.
   const { house } = route.params;
 
   // Van ChatGPT, nog eens goed doorlezen.
@@ -70,7 +67,6 @@ const HouseScreen = ({ navigation }) => {
     <View
       style={{
         backgroundColor: activeColors.background,
-        // paddingBottom: useBottomTabBarHeight(),
         flex: 1,
       }}
     >

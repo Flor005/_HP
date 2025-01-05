@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, Pressable, Linking } from 'react-native';
+import { ImageBackground, Linking, Pressable } from 'react-native';
 
 const HomeScreen = () => {
   const imagePressHandler = () => {
@@ -9,7 +9,14 @@ const HomeScreen = () => {
   };
 
   return (
-    <Pressable style={{ flex: 1 }} onPress={imagePressHandler}>
+    <Pressable
+      style={{ flex: 1 }}
+      onPress={imagePressHandler}
+      accessible={true}
+      accessibilityLabel='Click to go to the website'
+      accessibilityHint='This opens a link to see to which house you belong'
+      accessibilityRole='button'
+    >
       <ImageBackground
         style={{ flex: 1 }}
         source={require('../assets/Home.jpg')}

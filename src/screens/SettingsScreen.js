@@ -1,11 +1,11 @@
+import React, { useContext, useState } from 'react';
+import { ImageBackground } from 'react-native';
+import { colors, fonts, languages } from '../styles/theme';
 import {
   ThemeContext,
   FontContext,
   LanguageContext,
 } from '../contexts/ThemeContext';
-import { React, useContext, useState } from 'react';
-import { ImageBackground } from 'react-native';
-import { colors, fonts, languages } from '../styles/theme';
 import SwitchWithLabel from '../components/SwitchWithLabel';
 
 const SettingsScreen = () => {
@@ -34,7 +34,7 @@ const SettingsScreen = () => {
     setIsEnabledLanguage((previousState) => !previousState);
   };
 
-  const styles = { fontSize: activeFonts.font, color: activeColors.tertiary };
+  const styles = { fontSize: activeFonts.font, color: 'white' };
 
   return (
     <ImageBackground style={{ flex: 1 }} source={activeColors.image}>
@@ -44,6 +44,10 @@ const SettingsScreen = () => {
         value={isEnabledTheme}
         onValueChange={toggleSwitchTheme}
         onChange={() => console.log(isEnabledTheme)}
+        accessible={true}
+        accessibilityLabel='Change the theme'
+        accessibilityHint='This changes the theme from Gryffindor to Slytherin or the opposite'
+        accessibilityRole='togglebutton'
       />
       <SwitchWithLabel
         label={activeLanguages.settingsFont}
@@ -51,6 +55,10 @@ const SettingsScreen = () => {
         value={isEnabledFont}
         onValueChange={toggleSwitchFont}
         onChange={() => console.log(isEnabledFont)}
+        accessible={true}
+        accessibilityLabel='Change the font'
+        accessibilityHint='This changes the font of the text displayed on the different screens'
+        accessibilityRole='togglebutton'
       />
       <SwitchWithLabel
         label={activeLanguages.settingsLanguage}
@@ -58,6 +66,10 @@ const SettingsScreen = () => {
         value={isEnabledLanguage}
         onValueChange={toggleSwitchLanguage}
         onChange={() => console.log(isEnabledLanguage)}
+        accessible={true}
+        accessibilityLabel='Change the language'
+        accessibilityHint='This changes the language from English to French or the opposite'
+        accessibilityRole='togglebutton'
       />
     </ImageBackground>
   );

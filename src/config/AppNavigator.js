@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
+import { React, useContext } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+// import context
+import { colors, languages } from '../styles/theme';
+import { ThemeContext, LanguageContext } from '../contexts/ThemeContext';
 // importing different screens
 import HomeScreen from '../screens/HomeScreen';
 import CharactersScreen from '../screens/CharactersScreen';
-import HouseScreen from '../screens/HouseScreen';
 import DetailScreen from '../screens/DetailScreen';
+import HouseScreen from '../screens/HouseScreen';
 import SpellScreen from '../screens/SpellScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 // importing icons
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-// import context
-import { ThemeContext, LanguageContext } from '../contexts/ThemeContext';
-import { colors, languages } from '../styles/theme';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,6 +39,7 @@ export const TabNavigator = () => {
             tabBarIcon: () => (
               <FontAwesome6 name='house-chimney' size={24} color='black' />
             ),
+            headerTitleStyle: { color: 'white' },
           }}
         />
         <Tab.Screen
@@ -52,6 +53,7 @@ export const TabNavigator = () => {
             tabBarIcon: () => (
               <FontAwesome6 name='users' size={24} color='black' />
             ),
+            headerTitleStyle: { color: 'white' },
           }}
         />
         <Tab.Screen
@@ -65,6 +67,7 @@ export const TabNavigator = () => {
             tabBarIcon: () => (
               <FontAwesome6 name='wand-sparkles' size={24} color='black' />
             ),
+            headerTitleStyle: { color: 'white' },
           }}
         />
         <Tab.Screen
@@ -78,6 +81,7 @@ export const TabNavigator = () => {
             tabBarIcon: () => (
               <FontAwesome6 name='gear' size={24} color='black' />
             ),
+            headerTitleStyle: { color: 'white' },
           }}
         />
       </Tab.Navigator>
@@ -89,15 +93,15 @@ const DetailStack = createNativeStackNavigator();
 
 export const CharacterNavigator = () => {
   const { theme } = useContext(ThemeContext);
-  let activeColors = colors[theme.mode];
   const { language } = useContext(LanguageContext);
+  let activeColors = colors[theme.mode];
   let activeLanguages = languages[language.mode];
   return (
     <DetailStack.Navigator>
       <DetailStack.Screen
         name='CharactersScreen'
         component={CharactersScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, headerTitleStyle: { color: 'white' } }}
       />
       <DetailStack.Screen
         name='Detail'
@@ -105,14 +109,15 @@ export const CharacterNavigator = () => {
         options={{
           title: activeLanguages.detailsScreen,
           headerStyle: { backgroundColor: activeColors.background },
+          headerTitleStyle: { color: 'white' },
         }}
       />
       <DetailStack.Screen
         name='House'
         component={HouseScreen}
         options={{
-          // title: 'Gryffindor', //activeLanguages.houseScreen,
           headerStyle: { backgroundColor: activeColors.background },
+          headerTitleStyle: { color: 'white' },
         }}
       />
     </DetailStack.Navigator>

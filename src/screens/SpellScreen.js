@@ -1,12 +1,11 @@
-import { React, useState, useEffect, useContext } from 'react';
-import { Text, View, FlatList, TextInput, StyleSheet } from 'react-native';
-import { colors, languages, fonts } from '../styles/theme';
+import React, { useContext, useEffect, useState } from 'react';
+import { FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
+import { colors, fonts, languages } from '../styles/theme';
 import {
   ThemeContext,
-  LanguageContext,
   FontContext,
+  LanguageContext,
 } from '../contexts/ThemeContext';
-import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 
@@ -28,13 +27,13 @@ const Item = ({ item, colors, fonts }) => (
 );
 
 const SpellScreen = () => {
-  const { language } = useContext(LanguageContext);
   const { theme } = useContext(ThemeContext);
   const { font } = useContext(FontContext);
+  const { language } = useContext(LanguageContext);
 
-  let activeLanguages = languages[language.mode];
   let activeColors = colors[theme.mode];
   let activeFonts = fonts[font.mode];
+  let activeLanguages = languages[language.mode];
 
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -72,13 +71,16 @@ const SpellScreen = () => {
     <View
       style={{
         backgroundColor: activeColors.background,
-        paddingBottom: useBottomTabBarHeight(),
         flex: 1,
       }}
     >
       <TextInput
         placeholder={activeLanguages.spellsSearch}
         onChangeText={modifySearchValue}
+        accessible={true}
+        accessibilityLabel='Search your favorite spell'
+        accessibilityHint='You can type which spell you want to search for'
+        accessibilityRole='search'
       />
       <FlatList
         data={DATA}

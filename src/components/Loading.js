@@ -1,3 +1,4 @@
+import React from 'react';
 import { Text, View } from 'react-native';
 import { colors, fonts, languages } from '../styles/theme';
 import {
@@ -8,13 +9,13 @@ import {
 import { useContext } from 'react';
 
 const Loading = () => {
-  const { language } = useContext(LanguageContext);
   const { theme } = useContext(ThemeContext);
   const { font } = useContext(FontContext);
+  const { language } = useContext(LanguageContext);
 
-  let activeLanguages = languages[language.mode];
   let activeColors = colors[theme.mode];
   let activeFonts = fonts[font.mode];
+  let activeLanguages = languages[language.mode];
 
   return (
     <View

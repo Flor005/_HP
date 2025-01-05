@@ -1,23 +1,23 @@
-import { React, useContext } from 'react';
-import { Text, View, Image, StyleSheet } from 'react-native';
-import { fonts, languages, colors } from '../styles/theme';
+import React, { useContext } from 'react';
+import { Image, Text, View } from 'react-native';
+import { colors, fonts, languages } from '../styles/theme';
 import {
+  ThemeContext,
   FontContext,
   LanguageContext,
-  ThemeContext,
 } from '../contexts/ThemeContext';
 
 const DetailCharacter = (props) => {
   const { item, navigation } = props;
   const { name, wand, house, ancestry, patronus, image } = item;
 
+  const { theme } = useContext(ThemeContext);
   const { font } = useContext(FontContext);
   const { language } = useContext(LanguageContext);
-  const { theme } = useContext(ThemeContext);
 
+  let activeThemes = colors[theme.mode];
   let activeFonts = fonts[font.mode];
   let activeLanguages = languages[language.mode];
-  let activeThemes = colors[theme.mode];
 
   const {
     detailName,
@@ -28,18 +28,16 @@ const DetailCharacter = (props) => {
     detailHouse,
   } = activeLanguages;
 
-  const styles = StyleSheet.create({
-    details: {
-      fontSize: activeFonts.font,
-      color: activeThemes.primary,
-      lineHeight: activeFonts.lineHeight,
-      marginLeft: 10,
-    },
-  });
+  const stylesDetail = {
+    fontSize: activeFonts.font,
+    color: activeThemes.primary,
+    lineHeight: activeFonts.lineHeight,
+    marginLeft: 10,
+  };
 
   return (
     <View>
-      <Text style={styles.details}>
+      <Text style={stylesDetail}>
         {detailName}: {name ? name : 'Unknown'}
         {'\n'}
         {detailWandCore}: {wand.core ? wand.core : 'Unknown'}
@@ -51,8 +49,12 @@ const DetailCharacter = (props) => {
         {detailPatronus}: {patronus ? patronus : 'Unknown'}
       </Text>
       <Text
-        style={styles.details}
+        style={stylesDetail}
         onPress={() => navigation.navigate('House', { house: house })}
+        accessible={true}
+        accessibilityLabel='Tap to see other members of the house'
+        accessibilityHint='If you tap on the house, you will see a list of all other characters from the same house'
+        accessibilityRole='button'
       >
         {detailHouse}: {house ? house : 'Unknown'}
         {'\n'}

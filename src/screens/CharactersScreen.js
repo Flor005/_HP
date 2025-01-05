@@ -1,12 +1,12 @@
-import { React, useEffect, useState, useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
-  View,
   FlatList,
+  Image,
+  Pressable,
   StyleSheet,
   Text,
-  Image,
   TextInput,
-  Pressable,
+  View,
 } from 'react-native';
 import { colors, languages, fonts } from '../styles/theme';
 import {
@@ -14,15 +14,14 @@ import {
   LanguageContext,
   FontContext,
 } from '../contexts/ThemeContext';
-// import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 
 const Item = ({ navigation, styleFont, styleTheme, colors, item }) => (
   <Pressable
     accessible={true}
-    accessibilityLabel='Show the details'
-    accessibilityHint='Tap to see the details'
+    accessibilityLabel='Tap to see the details'
+    accessibilityHint='This will give you more info about the selected character'
     accessibilityRole='button'
     onPress={() =>
       navigation.navigate('Detail', {
@@ -47,13 +46,13 @@ const Item = ({ navigation, styleFont, styleTheme, colors, item }) => (
 );
 
 const CharactersScreen = ({ navigation }) => {
-  const { language } = useContext(LanguageContext);
   const { theme } = useContext(ThemeContext);
   const { font } = useContext(FontContext);
+  const { language } = useContext(LanguageContext);
 
-  let activeLanguages = languages[language.mode];
   let activeColors = colors[theme.mode];
   let activeFonts = fonts[font.mode];
+  let activeLanguages = languages[language.mode];
 
   const BASE_URL = 'https://hp-api.onrender.com/api/characters';
   const [isLoading, setIsLoading] = useState(false);
@@ -94,17 +93,16 @@ const CharactersScreen = ({ navigation }) => {
     <View
       style={{
         backgroundColor: activeColors.background,
-        // paddingBottom: useBottomTabBarHeight(),
         flex: 1,
       }}
     >
       <TextInput
-        accessible={true}
-        accessibilityLabel='Searchbar'
-        accessibilityHint='Type to search'
-        accessibilityRole='search'
         placeholder={activeLanguages.charactersSearch}
         onChangeText={modifySearchValue}
+        accessible={true}
+        accessibilityLabel='Search your favorite spell'
+        accessibilityHint='You can type which spell you want to search for'
+        accessibilityRole='search'
       />
       <FlatList
         data={DATA}

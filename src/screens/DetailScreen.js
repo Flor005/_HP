@@ -1,16 +1,14 @@
-import { React, useContext } from 'react';
+import React, { useContext } from 'react';
 import { ScrollView } from 'react-native';
-import { useRoute } from '@react-navigation/native';
-import DetailCharacter from '../components/DetailCharacter';
 import { colors } from '../styles/theme';
 import { ThemeContext } from '../contexts/ThemeContext';
+import DetailCharacter from '../components/DetailCharacter';
 
-const DetailScreen = ({ navigation }) => {
+const DetailScreen = ({ route, navigation }) => {
   const { theme } = useContext(ThemeContext);
 
   let activeColors = colors[theme.mode];
 
-  const route = useRoute();
   const { item } = route.params;
 
   return (
