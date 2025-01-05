@@ -51,14 +51,7 @@ const DetailCharacter = (props) => {
         {detailPatronus}: {patronus ? patronus : 'Unknown'}
       </Text>
 
-      <Pressable
-        onPress={() =>
-          navigation.navigate('House', {
-            house: house,
-            navigation: navigation,
-          })
-        }
-      >
+      <Pressable onPress={() => navigation.navigate('House', { house: house })}>
         <Text style={styles.details}>
           {detailHouse}: {house ? house : 'Unknown'}
           {'\n'}
