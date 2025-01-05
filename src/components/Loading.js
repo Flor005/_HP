@@ -5,7 +5,7 @@ import {
   ThemeContext,
   FontContext,
   LanguageContext,
-} from '../contexts/ThemeContext';
+} from '../contexts/SettingsContext';
 import { useContext } from 'react';
 
 const Loading = () => {

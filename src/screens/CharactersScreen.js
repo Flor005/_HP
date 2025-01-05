@@ -13,7 +13,7 @@ import {
   ThemeContext,
   LanguageContext,
   FontContext,
-} from '../contexts/ThemeContext';
+} from '../contexts/SettingsContext';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 
@@ -99,6 +99,7 @@ const CharactersScreen = ({ navigation }) => {
       <TextInput
         placeholder={activeLanguages.charactersSearch}
         onChangeText={modifySearchValue}
+        style={{ fontSize: activeFonts.font }}
         accessible={true}
         accessibilityLabel='Search your favorite spell'
         accessibilityHint='You can type which spell you want to search for'

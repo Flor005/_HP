@@ -4,7 +4,7 @@ import {
   ThemeContext,
   FontContext,
   LanguageContext,
-} from './src/contexts/ThemeContext';
+} from './src/contexts/SettingsContext';
 
 const App = () => {
   const [theme, setTheme] = useState({ mode: 'light' });

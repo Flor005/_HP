@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 import { colors, fonts } from '../styles/theme';
-import { ThemeContext, FontContext } from '../contexts/ThemeContext';
+import { ThemeContext, FontContext } from '../contexts/SettingsContext';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 
@@ -28,7 +28,6 @@ const HouseScreen = ({ route, navigation }) => {
 
   const { house } = route.params;
 
-  // Van ChatGPT, nog eens goed doorlezen.
   useEffect(() => {
     navigation.setOptions({ title: house });
   }, [house, navigation]);

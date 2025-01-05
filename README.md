@@ -1,12 +1,23 @@
-# Verbeterpunten:
+# Uitleg app
 
-Characters: Moet ik nog styling doen zodat als de naam te groot wordt (door te lange naam of te groot lettertype) dat de afbeelding steeds op zijn plaats blijft?
+De HarryPotter-app is bedoeld om de gebruiker onder te dompelen in de wereld van Hogwarts.
+Op het startscherm kan je klikken op de image en ga je naar een website om zelf te kijken tot welk huis je behoort.
+Op het tweede scherm kan je al je favoriete characters opzoeken. Van daaruit kan je meer info per character zien,
+alsook de andere characters van het huis van uw gekozen character. (door op het huis van de character te klikken in de detailpagina).
+Informatie van je favoriete spreuk opzoeken doe je op het derde scherm.
+De instellingen i.v.m. het thema, de lettergrootte en de taal vind je op het vierde scherm.
 
-Button in de ./components/Error.js om de api-request opnieuw uit te voeren? Ja, anders is dit een vorm van 'crashen'
+# Bronnenvermelding
 
-Als je nu van CharactersScreen -> Detail naar HouseScreen gaat, zie je bovenaan gewoon 'House' of 'Maison' staan, het zou leuker zijn moest ook het effectieve Huis daar staan.
+De iconen komen van volgende website: https://icons.expo.fyi/Index
+De code ivm createContext heb ik gebaseerd op volgende youtube-tutorial: https://www.youtube.com/watch?v=KZyUlaz7gCk
+De code ivm het fetchen van de data van de api heb ik gebaseerd op deze youtube-tutorial: https://www.youtube.com/watch?v=00lxm_doFYw
+De code in HomeScreen.js om een webpagina buiten de app te openen is gebaseerd op de code van de oplossing van Pokédex, les 8, Cross-Platform Development, Toledo.
+De code om de naam van het desbetreffende huis te displayen op het HouseScreen is gebaseerd op code van ChatGPT.
 
-Misschien ook nog een andere WelcomeImage voor Gryffindor theme.
+Overige code was mogelijks een resultaat van informatie uit de cursus en de documentatie van React:
+Components: https://reactnative.dev/docs/components-and-apis
+Api's: https://reactnative.dev/docs/accessibilityinfo
 
 # Styles:
 

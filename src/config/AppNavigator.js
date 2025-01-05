@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 // import context
 import { colors, languages } from '../styles/theme';
-import { ThemeContext, LanguageContext } from '../contexts/ThemeContext';
+import { ThemeContext, LanguageContext } from '../contexts/SettingsContext';
 // importing different screens
 import HomeScreen from '../screens/HomeScreen';
 import CharactersScreen from '../screens/CharactersScreen';

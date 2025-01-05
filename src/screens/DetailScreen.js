@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ScrollView } from 'react-native';
 import { colors } from '../styles/theme';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { ThemeContext } from '../contexts/SettingsContext';
 import DetailCharacter from '../components/DetailCharacter';
 
 const DetailScreen = ({ route, navigation }) => {
